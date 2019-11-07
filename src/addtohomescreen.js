@@ -169,25 +169,25 @@ ath.defaults = {
 	appID: 'org.cubiq.addtohome',		// local storage name (no need to change)
 	fontSize: 15,				// base font size, used to properly resize the popup based on viewport scale factor
 	debug: false,				// override browser checks
-	logging: false,				// log reasons for showing or not showing to js console; defaults to true when debug is true
-	modal: false,				// prevent further actions until the message is closed
-	mandatory: false,			// you can't proceed if you don't add the app to the homescreen
+	logging: false,				// log reasons for showing or not showing to js console; defaults to true when debug is true显示或不显示给js控制台的日志原因；当debug为true时默认为true
+	modal: false,				// prevent further actions until the message is closed在消息关闭之前阻止进一步操作
+	mandatory: false,			// you can't proceed if you don't add the app to the homescreen自动显示消息如果不将应用程序添加到主屏幕，则无法继续
 	autostart: true,			// show the message automatically
-	skipFirstVisit: false,		// show only to returning visitors (ie: skip the first time you visit)
-	startDelay: 1,				// display the message after that many seconds from page load
+	skipFirstVisit: false,		// show only to returning visitors (ie: skip the first time you visit)	只对回头客显示（即：第一次访问时跳过）
+	startDelay: 1,				// display the message after that many seconds from page load 在页面加载数秒后显示消息
 	lifespan: 15,				// life of the message in seconds
-	displayPace: 1440,			// minutes before the message is shown again (0: display every time, default 24 hours)
-	maxDisplayCount: 0,			// absolute maximum number of times the message will be shown to the user (0: no limit)
-	icon: true,					// add touch icon to the message
-	message: '',				// the message can be customized
-	validLocation: [],			// list of pages where the message will be shown (array of regexes)
-	onInit: null,				// executed on instance creation
-	onShow: null,				// executed when the message is shown
-	onRemove: null,				// executed when the message is removed
-	onAdd: null,				// when the application is launched the first time from the homescreen (guesstimate)
-	onPrivate: null,			// executed if user is in private mode
-	privateModeOverride: false,	// show the message even in private mode (very rude)
-	detectHomescreen: false		// try to detect if the site has been added to the homescreen (false | true | 'hash' | 'queryString' | 'smartURL')
+	displayPace: 1440,			// minutes before the message is shown again (0: display every time, default 24 hours)再次显示消息前的分钟数（0：每次显示，默认为24小时）
+	maxDisplayCount: 0,			// absolute maximum number of times the message will be shown to the user (0: no limit)消息将显示给用户的绝对最大次数（0：无限制）
+	icon: true,					// add touch icon to the message在消息中添加触摸图标
+	message: '',				// the message can be customized可以自定义消息
+	validLocation: [],			// list of pages where the message will be shown (array of regexes)显示消息的页面列表（正则表达式数组）
+	onInit: null,				// executed on instance creation实例创建时执行
+	onShow: null,				// executed when the message is shown显示消息时执行
+	onRemove: null,				// executed when the message is removed删除消息时执行
+	onAdd: null,				// when the application is launched the first time from the homescreen (guesstimate)首次从主屏幕启动应用程序时（猜测时间）
+	onPrivate: null,			// executed if user is in private mode在用户处于私有模式时执行
+	privateModeOverride: false,	// show the message even in private mode (very rude)即使在私人模式下也显示消息（非常粗鲁）
+	detectHomescreen: false		// try to detect if the site has been added to the homescreen (false | true | 'hash' | 'queryString' | 'smartURL')尝试检测站点是否已添加到主屏幕（false | true | hash | queryString | smartURL）
 };
 
 // browser info and capability
