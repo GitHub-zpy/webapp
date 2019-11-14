@@ -4,20 +4,24 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 	<title>Android - native.js</title>
-	<script>
-function toDesktop(sUrl, sName) {
-try {
-    var WshShell = new ActiveXObject("WScript.Shell");
-    var oUrlLink = WshShell.CreateShortcut(WshShell.SpecialFolders("Desktop") + "\\" + sName + ".url");
-    oUrlLink.TargetPath = sUrl;
-    oUrlLink.Save();
-} catch (e) {
-        alert("当前IE安全级别不允许操作！");
+		<script type="text/javascript">
+    var ua = navigator.userAgent.toLowerCase();
+    //判断是不是在iPhone的Safair浏览器打开的本页面
+    if (ua.indexOf('applewebkit') > -1 && ua.indexOf('mobile') > -1 && ua.indexOf('safari') > -1 &&
+        ua.indexOf('linux') === -1 && ua.indexOf('android') === -1 && ua.indexOf('chrome') === -1 &&
+        ua.indexOf('ios') === -1 && ua.indexOf('browser') === -1) {
+        document.write("【是 Safari】");
     }
-}
+    else {
+        //alert("请使用iPhone中的Safari浏览器打开本页面！");
+        document.write("【不是 Safari】");
+    }
 </script>
-</head>
+	</head>
 <body>
-    <a href="javascript:void(0);" onclick="toDesktop('https://www.baidu.com','小龙')">创建快捷方式</a>
+	测试
+	<br />
+	<br /><br /><br /><br /><br />
+	测试
 </body>
 </html>
