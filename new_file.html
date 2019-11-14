@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
-		<title></title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<title>Android - native.js</title>
+	<script type="text/javascript">
+		var nwv=null;
+		// 监听plusready事件  
+		document.addEventListener( "plusready", function(){
+			// 扩展API加载完毕，现在可以正常调用扩展API
+			// 获取当前Webview窗口对象的native层实例对象
+			nwv = plus.android.currentWebview();
+		}, false );
+		// 通过Webview原生窗口对象打开页面
+		function loadURL(){
+			plus.android.invoke(nwv,"loadUrl","http://www.dcloud.io/");
+		}
+	</script>
 	</head>
 	<body>
-		<p>dsadadsadsad</p>
+		获取当前Webview窗口对象的native层实例对象<br/>
+		<button onclick="loadURL()">Native.js跳转页面</button>
 	</body>
 </html>

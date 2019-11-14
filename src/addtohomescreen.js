@@ -190,7 +190,7 @@ ath.defaults = {
 	detectHomescreen: false		// try to detect if the site has been added to the homescreen (false | true | 'hash' | 'queryString' | 'smartURL')尝试检测站点是否已添加到主屏幕（false | true | hash | queryString | smartURL）
 };
 
-// browser info and capability
+// browser info and capability浏览器信息和功能
 var _ua = window.navigator.userAgent;
 
 var _nav = window.navigator;
@@ -203,7 +203,7 @@ _extend(ath, {
 	language: _nav.language && _nav.language.toLowerCase().replace('-', '_') || ''
 });
 
-// falls back to en_us if language is unsupported
+// falls back to en_us if language is unsupported如果语言不受支持，则返回en_us
 ath.language = ath.language && ath.language in ath.intl ? ath.language : 'en_us';
 
 ath.isMobileSafari = ath.isIDevice && _ua.indexOf('Safari') > -1 && _ua.indexOf('CriOS') < 0;
@@ -218,11 +218,11 @@ ath.isTablet = (ath.isMobileSafari && _ua.indexOf('iPad') > -1) || (ath.isMobile
 ath.isCompatible = (ath.isMobileSafari && ath.OSVersion >= 6) || ath.isMobileChrome;	// TODO: add winphone
 
 var _defaultSession = {
-	lastDisplayTime: 0,			// last time we displayed the message
-	returningVisitor: false,	// is this the first time you visit
-	displayCount: 0,			// number of times the message has been shown
-	optedout: false,			// has the user opted out
-	added: false				// has been actually added to the homescreen
+	lastDisplayTime: 0,			// last time we displayed the message上次我们显示消息时
+	returningVisitor: false,	// is this the first time you visit这是你第一次来吗
+	displayCount: 0,			// number of times the message has been shown显示消息的次数
+	optedout: false,			// has the user opted out用户是否选择退出
+	added: false				// has been actually added to the homescreen已经被添加到主屏幕
 };
 
 ath.removeSession = function (appID) {
@@ -233,7 +233,7 @@ ath.removeSession = function (appID) {
 
 		localStorage.removeItem(appID || ath.defaults.appID);
 	} catch (e) {
-		// we are most likely in private mode
+		// we are most likely in private mode我们很可能是在私人模式下
 	}
 };
 
@@ -244,38 +244,38 @@ ath.doLog = function (logStr) {
 };
 
 ath.Class = function (options) {
-	// class methods
+	// class methods类方法
 	this.doLog = ath.doLog;
 
-	// merge default options with user config
+	// merge default options with user config将默认选项与用户配置合并
 	this.options = _extend({}, ath.defaults);
 	_extend(this.options, options);
-	// override defaults that are dependent on each other
+	// override defaults that are dependent on each other覆盖相互依赖的默认值
 	if ( this.options && this.options.debug && (typeof this.options.logging === "undefined") ) {
 		this.options.logging = true;
 	}
 
-	// IE<9 so exit (I hate you, really)
+	// IE<9 so exit (I hate you, really)IE < 9退出（我恨你，真的）
 	if ( !_eventListener ) {
 		return;
 	}
 
-	// normalize some options
+	// normalize some options一些选项
 	this.options.mandatory = this.options.mandatory && ( 'standalone' in window.navigator || this.options.debug );
 	this.options.modal = this.options.modal || this.options.mandatory;
 	if ( this.options.mandatory ) {
-		this.options.startDelay = -0.5;		// make the popup hasty
+		this.options.startDelay = -0.5;		// make the popup hasty快速弹出
 	}
 	this.options.detectHomescreen = this.options.detectHomescreen === true ? 'hash' : this.options.detectHomescreen;
 
-	// setup the debug environment
+	// setup the debug environment设置调试环境
 	if ( this.options.debug ) {
 		ath.isCompatible = true;
 		ath.OS = typeof this.options.debug == 'string' ? this.options.debug : ath.OS == 'unsupported' ? 'android' : ath.OS;
 		ath.OSVersion = ath.OS == 'ios' ? '8' : '4';
 	}
 
-	// the element the message will be appended to
+	// the element the message will be appended to消息将附加到的元素
 	this.container = document.body;
 
 	// load session
@@ -283,12 +283,13 @@ ath.Class = function (options) {
 	this.session = this.session ? JSON.parse(this.session) : undefined;
 
 	// user most likely came from a direct link containing our token, we don't need it and we remove it
+	//用户很可能来自包含我们的令牌的直接链接，我们不需要它，而是删除它
 	if ( ath.hasToken && ( !ath.isCompatible || !this.session ) ) {
 		ath.hasToken = false;
 		_removeToken();
 	}
 
-	// the device is not supported
+	// the device is not supported设备不受支持
 	if ( !ath.isCompatible ) {
  		this.doLog("Add to homescreen: not displaying callout because device not supported");
 		return;
@@ -296,7 +297,7 @@ ath.Class = function (options) {
 
 	this.session = this.session || _defaultSession;
 
-	// check if we can use the local storage
+	// check if we can use the local storage检查是否可以使用本地存储
 	try {
 		if (!localStorage) {
 			throw new Error('localStorage is not defined');
