@@ -4,22 +4,20 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 	<title>Android - native.js</title>
-	<script type="text/javascript">
-		var nwv=null;
-		// 监听plusready事件  
-		document.addEventListener( "plusready", function(){
-			// 扩展API加载完毕，现在可以正常调用扩展API
-			// 获取当前Webview窗口对象的native层实例对象
-			nwv = plus.android.currentWebview();
-		}, false );
-		// 通过Webview原生窗口对象打开页面
-		function loadURL(){
-			plus.android.invoke(nwv,"loadUrl","http://www.dcloud.io/");
-		}
-	</script>
-	</head>
-	<body>
-		获取当前Webview窗口对象的native层实例对象<br/>
-		<button onclick="loadURL()">Native.js跳转页面</button>
-	</body>
+	<script>
+function toDesktop(sUrl, sName) {
+try {
+    var WshShell = new ActiveXObject("WScript.Shell");
+    var oUrlLink = WshShell.CreateShortcut(WshShell.SpecialFolders("Desktop") + "\\" + sName + ".url");
+    oUrlLink.TargetPath = sUrl;
+    oUrlLink.Save();
+} catch (e) {
+        alert("当前IE安全级别不允许操作！");
+    }
+}
+</script>
+</head>
+<body>
+    <a href="javascript:void(0);" onclick="toDesktop('https://www.baidu.com','小龙')">创建快捷方式</a>
+</body>
 </html>
