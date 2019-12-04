@@ -1,57 +1,419 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<meta charset="utf-8"/>
-	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-	<title>Android - native.js</title>
+		<meta charset="UTF-8">
+		<title></title>
 	</head>
-<script>
-//设为首页
-//function SetHome(obj,url){
-//  try{
-//      obj.style.behavior='url(#default#homepage)';
-//      obj.setHomePage(url);
-//  }catch(e){
-//      if(window.netscape){
-//          try{
-//              netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
-//          }catch(e){
-//              alert("抱歉，此操作被浏览器拒绝！\n\n请在浏览器地址栏输入“about:config”并回车然后将[signed.applets.codebase_principal_support]设置为'true'");
-//          }
-//      }else{
-//          alert("抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将【"+url+"】设置为首页。");
-//      }
-//  }
-//}
-//收藏本站
-//function AddFavorite(title, url) {
-//  try {
-//      window.external.addFavorite(url, title);
-//  }
-//  catch (e) {
-//      try {
-//          window.sidebar.addPanel(title, url, "");
-//      }
-//      catch (e) {
-//          alert("抱歉，您所使用的浏览器无法完成此操作。\n\n加入收藏失败，请使用Ctrl+D进行添加");
-//      }
-//  }
-//}
-//保存到桌面
-function toDesktop(sUrl,sName){
-	try {
-	    var WshShell = new ActiveXObject("WScript.Shell");
-	    var oUrlLink =          WshShell.CreateShortcut(WshShell.SpecialFolders("Desktop")     + "\\" + sName + ".url");
-	    oUrlLink.TargetPath = sUrl;
-	    oUrlLink.Save();
-	    alert("11111111当前IE安全级别不允许操作！"); 
-    }catch(e){ 
-	          alert("当前IE安全级别不允许操作！"); 
-	}
-} 
-</script>
-
-<body>
-	 <a href="javascript:void(0);" onclick="toDesktop('https://github-zpy.github.io/webapp/new_file.html','163网易')">创建快捷方式</a>
-</body>
+	<style type="text/css">
+		table{max-width: 1040px;margin-bottom: 200px;}
+		td{height: 40px;text-align: center;}
+	</style>
+	<body>
+		<table border="1" cellspacing="0" cellpadding="0">
+			<tr>
+				<td rowspan="4"><img style="width: 250px;margin: 0 20px;" src="imgs/1.png"/></td>
+				<td colspan="3" style="text-align: left;font-weight: bold;font-size: 24px;">Guangzhou Uwins Hair Product Co.,Ltd</td>
+			</tr>
+			<tr>
+				<td colspan="3" style="text-align: left;">Address:Room 301, the fifth building of 2th Phase,Shangsheng Creative Industry Park,<br />
+					 No.46 of East Shangsheng Street in Jiahe wanggang, <br />
+					Baiyuan  District,Guangzhou,China.</td>
+			</tr>
+			<tr>
+				<td colspan="3" style="text-align: left;">contact:Mandy &nbsp;&nbsp;&nbsp;Email:info@uwinshair.com</td>
+			</tr>
+			<tr>
+				<td colspan="3" style="text-align: left;">TEL:0086 18620729075 &nbsp;&nbsp;&nbsp;FAX:86-020-26298215 &nbsp;&nbsp;&nbsp;Post Code:510000</td>
+			</tr>
+			<tr><td colspan="4" style="text-align: center;font-size: 24px;font-weight: bold;">INVOICE</td></tr>
+			<tr>
+				<td rowspan="2" colspan="2" style="text-align: left;font-weight: bold;">
+					To:Millicent Aphane<br />
+					Shop 72 golden walk mall<br />
+					Ekurhuleni <br />
+					Germiston <br />
+					Gauteng<br />
+					1401<br />
+					South Africa<br /> 
+					073 119 5521
+				</td>
+				<td style="text-align: left;font-weight: bold;">Invoice No. :</td>
+				<td style="font-weight: bold;">UWINS订单号</td>
+			</tr>
+			<tr>
+				<td style="text-align: left;font-weight: bold;">Date :</td>
+				<td style="text-align: left;font-weight: bold;">转换的日期</td>
+			</tr>
+			<tr>
+				<td style="font-weight: bold;">Item No.</td>
+				<td style="font-weight: bold;">Quantity (pcs)</td>
+				<td style="font-weight: bold;">EXW /Unit price<USD/PCS></td>
+				<td style="font-weight: bold;">AMOUNT (USD)</td>
+			</tr>
+			<tr>
+				<td>Hightlight Frontal straight wig </td>
+				<td>1</td>
+				<td>20</td>
+				<td>20</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td style="font-weight: bold;">Total</td>
+				<td style="font-weight: bold;">1</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td colspan="3" style="font-weight: bold;"> AMOUNT (USD)</td>
+				<td style="font-weight: bold;">20</td>
+			</tr>
+			<tr>
+				<td colspan="3" style="font-weight: bold;">  TOTAL</td>
+				<td style="font-weight: bold;">20</td>
+			</tr>
+			
+		</table>
+		<table border="1" cellspacing="0" cellpadding="0">
+			<tr>
+				<td rowspan="4"><img style="width: 250px;margin: 0 20px;" src="imgs/1.png"/></td>
+				<td colspan="3" style="text-align: left;font-weight: bold;font-size: 24px;">Guangzhou Uwins Hair Product Co.,Ltd</td>
+			</tr>
+			<tr>
+				<td colspan="3" style="text-align: left;">Address:Room 301, the fifth building of 2th Phase,Shangsheng Creative Industry Park,<br />
+					 No.46 of East Shangsheng Street in Jiahe wanggang, <br />
+					Baiyuan  District,Guangzhou,China.</td>
+			</tr>
+			<tr>
+				<td colspan="3" style="text-align: left;">contact:Mandy &nbsp;&nbsp;&nbsp;Email:info@uwinshair.com</td>
+			</tr>
+			<tr>
+				<td colspan="3" style="text-align: left;">TEL:0086 18620729075 &nbsp;&nbsp;&nbsp;FAX:86-020-26298215 &nbsp;&nbsp;&nbsp;Post Code:510000</td>
+			</tr>
+			<tr><td colspan="4" style="text-align: center;font-size: 24px;font-weight: bold;">INVOICE</td></tr>
+			<tr>
+				<td rowspan="2" colspan="2" style="text-align: left;font-weight: bold;">
+					To:Millicent Aphane<br />
+					Shop 72 golden walk mall<br />
+					Ekurhuleni <br />
+					Germiston <br />
+					Gauteng<br />
+					1401<br />
+					South Africa<br /> 
+					073 119 5521
+				</td>
+				<td style="text-align: left;font-weight: bold;">Invoice No. :</td>
+				<td style="font-weight: bold;">UWINS订单号</td>
+			</tr>
+			<tr>
+				<td style="text-align: left;font-weight: bold;">Date :</td>
+				<td style="text-align: left;font-weight: bold;">转换的日期</td>
+			</tr>
+			<tr>
+				<td style="font-weight: bold;">Item No.</td>
+				<td style="font-weight: bold;">Quantity (pcs)</td>
+				<td style="font-weight: bold;">EXW /Unit price<USD/PCS></td>
+				<td style="font-weight: bold;">AMOUNT (USD)</td>
+			</tr>
+			<tr>
+				<td>Hightlight Frontal straight wig </td>
+				<td>1</td>
+				<td>20</td>
+				<td>20</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td style="font-weight: bold;">Total</td>
+				<td style="font-weight: bold;">1</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td colspan="3" style="font-weight: bold;"> AMOUNT (USD)</td>
+				<td style="font-weight: bold;">20</td>
+			</tr>
+			<tr>
+				<td colspan="3" style="font-weight: bold;">  TOTAL</td>
+				<td style="font-weight: bold;">20</td>
+			</tr>
+			
+		</table>
+		<table border="1" cellspacing="0" cellpadding="0">
+			<tr>
+				<td rowspan="4"><img style="width: 250px;margin: 0 20px;" src="imgs/1.png"/></td>
+				<td colspan="3" style="text-align: left;font-weight: bold;font-size: 24px;">Guangzhou Uwins Hair Product Co.,Ltd</td>
+			</tr>
+			<tr>
+				<td colspan="3" style="text-align: left;">Address:Room 301, the fifth building of 2th Phase,Shangsheng Creative Industry Park,<br />
+					 No.46 of East Shangsheng Street in Jiahe wanggang, <br />
+					Baiyuan  District,Guangzhou,China.</td>
+			</tr>
+			<tr>
+				<td colspan="3" style="text-align: left;">contact:Mandy &nbsp;&nbsp;&nbsp;Email:info@uwinshair.com</td>
+			</tr>
+			<tr>
+				<td colspan="3" style="text-align: left;">TEL:0086 18620729075 &nbsp;&nbsp;&nbsp;FAX:86-020-26298215 &nbsp;&nbsp;&nbsp;Post Code:510000</td>
+			</tr>
+			<tr><td colspan="4" style="text-align: center;font-size: 24px;font-weight: bold;">INVOICE</td></tr>
+			<tr>
+				<td rowspan="2" colspan="2" style="text-align: left;font-weight: bold;">
+					To:Millicent Aphane<br />
+					Shop 72 golden walk mall<br />
+					Ekurhuleni <br />
+					Germiston <br />
+					Gauteng<br />
+					1401<br />
+					South Africa<br /> 
+					073 119 5521
+				</td>
+				<td style="text-align: left;font-weight: bold;">Invoice No. :</td>
+				<td style="font-weight: bold;">UWINS订单号</td>
+			</tr>
+			<tr>
+				<td style="text-align: left;font-weight: bold;">Date :</td>
+				<td style="text-align: left;font-weight: bold;">转换的日期</td>
+			</tr>
+			<tr>
+				<td style="font-weight: bold;">Item No.</td>
+				<td style="font-weight: bold;">Quantity (pcs)</td>
+				<td style="font-weight: bold;">EXW /Unit price<USD/PCS></td>
+				<td style="font-weight: bold;">AMOUNT (USD)</td>
+			</tr>
+			<tr>
+				<td>Hightlight Frontal straight wig </td>
+				<td>1</td>
+				<td>20</td>
+				<td>20</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td style="font-weight: bold;">Total</td>
+				<td style="font-weight: bold;">1</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td colspan="3" style="font-weight: bold;"> AMOUNT (USD)</td>
+				<td style="font-weight: bold;">20</td>
+			</tr>
+			<tr>
+				<td colspan="3" style="font-weight: bold;">  TOTAL</td>
+				<td style="font-weight: bold;">20</td>
+			</tr>
+			
+		</table>
+		<table border="1" cellspacing="0" cellpadding="0">
+			<tr>
+				<td rowspan="4"><img style="width: 250px;margin: 0 20px;" src="imgs/1.png"/></td>
+				<td colspan="3" style="text-align: left;font-weight: bold;font-size: 24px;">Guangzhou Uwins Hair Product Co.,Ltd</td>
+			</tr>
+			<tr>
+				<td colspan="3" style="text-align: left;">Address:Room 301, the fifth building of 2th Phase,Shangsheng Creative Industry Park,<br />
+					 No.46 of East Shangsheng Street in Jiahe wanggang, <br />
+					Baiyuan  District,Guangzhou,China.</td>
+			</tr>
+			<tr>
+				<td colspan="3" style="text-align: left;">contact:Mandy &nbsp;&nbsp;&nbsp;Email:info@uwinshair.com</td>
+			</tr>
+			<tr>
+				<td colspan="3" style="text-align: left;">TEL:0086 18620729075 &nbsp;&nbsp;&nbsp;FAX:86-020-26298215 &nbsp;&nbsp;&nbsp;Post Code:510000</td>
+			</tr>
+			<tr><td colspan="4" style="text-align: center;font-size: 24px;font-weight: bold;">INVOICE</td></tr>
+			<tr>
+				<td rowspan="2" colspan="2" style="text-align: left;font-weight: bold;">
+					To:Millicent Aphane<br />
+					Shop 72 golden walk mall<br />
+					Ekurhuleni <br />
+					Germiston <br />
+					Gauteng<br />
+					1401<br />
+					South Africa<br /> 
+					073 119 5521
+				</td>
+				<td style="text-align: left;font-weight: bold;">Invoice No. :</td>
+				<td style="font-weight: bold;">UWINS订单号</td>
+			</tr>
+			<tr>
+				<td style="text-align: left;font-weight: bold;">Date :</td>
+				<td style="text-align: left;font-weight: bold;">转换的日期</td>
+			</tr>
+			<tr>
+				<td style="font-weight: bold;">Item No.</td>
+				<td style="font-weight: bold;">Quantity (pcs)</td>
+				<td style="font-weight: bold;">EXW /Unit price<USD/PCS></td>
+				<td style="font-weight: bold;">AMOUNT (USD)</td>
+			</tr>
+			<tr>
+				<td>Hightlight Frontal straight wig </td>
+				<td>1</td>
+				<td>20</td>
+				<td>20</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td style="font-weight: bold;">Total</td>
+				<td style="font-weight: bold;">1</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td colspan="3" style="font-weight: bold;"> AMOUNT (USD)</td>
+				<td style="font-weight: bold;">20</td>
+			</tr>
+			<tr>
+				<td colspan="3" style="font-weight: bold;">  TOTAL</td>
+				<td style="font-weight: bold;">20</td>
+			</tr>
+			
+		</table>
+		<table border="1" cellspacing="0" cellpadding="0">
+			<tr>
+				<td rowspan="4"><img style="width: 250px;margin: 0 20px;" src="imgs/1.png"/></td>
+				<td colspan="3" style="text-align: left;font-weight: bold;font-size: 24px;">Guangzhou Uwins Hair Product Co.,Ltd</td>
+			</tr>
+			<tr>
+				<td colspan="3" style="text-align: left;">Address:Room 301, the fifth building of 2th Phase,Shangsheng Creative Industry Park,<br />
+					 No.46 of East Shangsheng Street in Jiahe wanggang, <br />
+					Baiyuan  District,Guangzhou,China.</td>
+			</tr>
+			<tr>
+				<td colspan="3" style="text-align: left;">contact:Mandy &nbsp;&nbsp;&nbsp;Email:info@uwinshair.com</td>
+			</tr>
+			<tr>
+				<td colspan="3" style="text-align: left;">TEL:0086 18620729075 &nbsp;&nbsp;&nbsp;FAX:86-020-26298215 &nbsp;&nbsp;&nbsp;Post Code:510000</td>
+			</tr>
+			<tr><td colspan="4" style="text-align: center;font-size: 24px;font-weight: bold;">INVOICE</td></tr>
+			<tr>
+				<td rowspan="2" colspan="2" style="text-align: left;font-weight: bold;">
+					To:Millicent Aphane<br />
+					Shop 72 golden walk mall<br />
+					Ekurhuleni <br />
+					Germiston <br />
+					Gauteng<br />
+					1401<br />
+					South Africa<br /> 
+					073 119 5521
+				</td>
+				<td style="text-align: left;font-weight: bold;">Invoice No. :</td>
+				<td style="font-weight: bold;">UWINS订单号</td>
+			</tr>
+			<tr>
+				<td style="text-align: left;font-weight: bold;">Date :</td>
+				<td style="text-align: left;font-weight: bold;">转换的日期</td>
+			</tr>
+			<tr>
+				<td style="font-weight: bold;">Item No.</td>
+				<td style="font-weight: bold;">Quantity (pcs)</td>
+				<td style="font-weight: bold;">EXW /Unit price<USD/PCS></td>
+				<td style="font-weight: bold;">AMOUNT (USD)</td>
+			</tr>
+			<tr>
+				<td>Hightlight Frontal straight wig </td>
+				<td>1</td>
+				<td>20</td>
+				<td>20</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td style="font-weight: bold;">Total</td>
+				<td style="font-weight: bold;">1</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td colspan="3" style="font-weight: bold;"> AMOUNT (USD)</td>
+				<td style="font-weight: bold;">20</td>
+			</tr>
+			<tr>
+				<td colspan="3" style="font-weight: bold;">  TOTAL</td>
+				<td style="font-weight: bold;">20</td>
+			</tr>
+			
+		</table>
+	</body>
 </html>
+
