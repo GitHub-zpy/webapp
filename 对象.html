@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>清洗衣服</title>
+	</head>
+	<body>
+		清洗衣服需求</br>
+		1.先弄出两个对象：“洗衣机”对象和“人”对象</br>
+		2.针对对象“人”加入属性和方法：“加脏衣服方法”、“加洗衣粉方法”</br>
+		3.针对对象“洗衣机”加入一些属性和方法：“加水方法”、“清洗方法”、“烘干方法”</br>
+		4、然后执行</br>
+		<img src="https://www.9-bill.com/index/legal" />
+	</body>
+</html>
+<script>
+	function Ren(name){
+		this.name = name
+		this.jia_zyf=function(){
+			console.log(this.name+'加脏衣服')
+		}
+		this.jia_xyf=function(){
+			console.log(this.name+'加洗衣粉')
+		}
+	}
+	function Xiyiji(name){
+		this.name = name
+		this.jia_shui=function(){
+			console.log(this.name+'加水的方法')
+		}
+		this.xi_yi_fu=function(){
+			console.log(this.name+'洗衣服的方法')
+		}
+		this.hong_gan=function(){
+			console.log(this.name+'烘干的方法')
+		}
+	}
+	var ren = new Ren('人')
+	var xiyiji = new Xiyiji('洗衣机')
+	ren.jia_zyf()
+	ren.jia_xyf()
+	xiyiji.jia_shui()
+	xiyiji.xi_yi_fu()
+	xiyiji.hong_gan()
+</script>
+
+
+<!-- <script>
+	function Feiji(name,color){
+		this.name = name;
+		this.color = color;
+	}
+	var feiji_1 = new Feiji('普通','白色');
+	
+	Feiji.prototype.zidan = '子弹'
+	Feiji.prototype.zhandou = function(){
+		console.log('这是一架'+this.color+'的'+this.name+'飞机')
+	}
+	
+	feiji_1.zhandou()
+	
+</script> -->

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		.cart_ul > li{list-style: none;}
+		.cart_ul .num_btn{display: inline-block;width:40px;height: 40px;text-align: center;line-height: 40px;
+		border: 1px solid #ccc;font-size: 24px;cursor: pointer;}
+	</style>
+	<body>
+		<ul class="cart_ul">
+			<li>
+				<span class="num_btn sub">-</span>
+				<input class="num_in" type="text" value="10" >
+				<span class="num_btn add" onclick="hot_cart.cartAdd($(this))">+</span>
+			</li>
+			<li>
+				<span class="num_btn sub">-</span>
+				<input class="num_in" type="text" value="15" >
+				<span class="num_btn add" onclick="hot_cart.cartAdd($(this))">+</span>
+			</li>
+		</ul>
+	</body>
+</html>
+<script src="./src/jquery.min.js"></script>
+<script>
+	function Cart(){
+		// this.num = num
+	}
+	
+	Cart.prototype.cartAdd = function(obj){
+		var _this = this
+		var num = obj.siblings('.num_in').val()
+		num++
+		obj.siblings('.num_in').val(num)
+		
+	} 
+	var hot_cart = new Cart()
+	// $('.cart_ul .add').click(function(){
+	// 	hot_cart.cartAdd()
+	// })
+	
+	
+	function AA(){
+		this.name = 'AA呀'
+	}
+	
+	AA.prototype.Aa=function(){
+		console.log(this.name)
+	}
+	function aa(){
+		this.names = 'aa呀'
+	}
+	aa.prototype = new AA()
+	var aac = new aa()
+	console.log(aac.name)
+</script>

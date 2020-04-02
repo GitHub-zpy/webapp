@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	var Father=function(){//需继承的父类
+		this.gate ="ok";
+	}
+	var One=function(){
+		this.person="no";
+	}
+	var fa = new Father()
+	
+	One.prototype=fa;//替换prototype属性的prototype对象 就差不多是你
+	//Object.creat()的实现
+	
+	one=new One();//one的实例
+	console.log(one.gate);//输出ok 实现继承
+	console.log(One.prototype.constructor);//打印被替换的prototype.constructor，本应该是One 
+	// var two=new (one.__proto__constructor)//error 你产生的实际上是Father的实例
+	// console.log(two.person);//undefined
+	// console.log(one.prototype);//undefined
+</script>
