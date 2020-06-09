@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>粘贴上传图片</title>
+		<style type="text/css">
+			.tips {
+				font-size: 14px;
+				color: #7a7a7a;
+			}
+			#preview {
+				width: 400px;
+				height: 200px;
+			}
+			#preview img {
+				max-width: 100%;
+				max-height: 100%;
+			}
+			.preview:after {
+				width: 100%;
+				content: '预览';
+				display: block;
+				text-align: center;
+				font-size: 45px;
+				line-height: 200px;
+				color: #ddd;
+				border: 3px dashed #eee;
+			}
+		</style>
+	</head>
+	<body>
+		<p class="tips">提示: 从任意网页右击复制图片或者直接用QQ等软件截图，然后点击激活该页面，粘贴</p>
+		<div id="preview" class="preview"></div>
+		<p class="tips">素材图</p>
+		<img src="http://demo.deanhan.cn/paste-upload/image.png" width="300px" />
+		<p class="tips">注：为了避免安全性问题，图片只支持png、jpg图片上传，命名都为image。</p>
+	</body>
+	<script type="text/javascript">
+		(function() {
+			document.addEventListener('paste', function (e) {
+			    var items = ((e.clipboardData || window.clipboardData).items) || [];
+			    var file = null;
+	
+			    if (items && items.length) {
+		           for (var i = 0; i < items.length; i++) {
+		               if (items[i].type.indexOf('image') !== -1) {
+		                   file = items[i].getAsFile();
+		                   break;
+		               }
+		           }
+		       }
+	
+			    if (!file) {
+			        alert('粘贴内容非图片！');
+			        return;
+			    }
+	
+			    var reader = new FileReader()
+			    reader.onload = function(e) {
+			        preview.innerHTML = '<img src="' + e.target.result + '">';
+			    }
+			    reader.readAsDataURL(file);
+	
+			    preview.className = '';
+	
+			    var formData = new FormData();
+			    formData.append('file', file);
+	
+			    var xhr = new XMLHttpRequest();
+			    xhr.onload = function () {
+			        try {
+			        	var result = JSON.parse(this.responseText);
+			        	if (result.ret === 0) {
+			        		alert('上传成功，地址：http://demo.deanhan.cn/paste-upload/' + result.path);
+			        	} else {
+			        		alert('上传失败');
+			        	}
+			        } catch(e) {
+			        	alert('上传失败');
+			        }
+			    };
+			    xhr.onerror = function () {
+			        alert('上传失败');
+			    };
+			    xhr.open('POST', './upload_file.php', true);
+			    xhr.send(formData);
+			});
+		})();
+	</script>
+</html>
